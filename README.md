@@ -1,2 +1,2 @@
-# CMPS327-AStar-Game
-CMPS 327 A Star Game Code
+# CMPS327-AStar-Game-Starter-Code
+CMPS 327 A Star Game Starter Code
