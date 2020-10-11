@@ -16,8 +16,8 @@ public class Player : MonoBehaviour
     Vector3 velocity;
 
     //properties
-    public float slowSpeed = 0.04f;
-    public float fastSpeed = 0.08f;
+    public float slowSpeed = 0.004f;
+    public float fastSpeed = 0.008f;
     float speed = 0.04f;
     int enemyCloseCounter = 0;
     public int maxCounter = 5;
