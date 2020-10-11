@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
     public Vector3 velocity;
 
     //properties
-    public float speed = 0.05f;
+    public float speed = 0.005f;
     public float visionDistance = 5;
     public int maxCounter = 5;
     protected int playerCloseCounter;
@@ -96,7 +96,10 @@ public class Enemy : MonoBehaviour
         switch (state)
         {
             case EnemyState.DEFAULT: // generate random path 
+                
+                //Changed the color to white to differentiate from other enemies
                 material.color = Color.white;
+                
                 if (path.Count <= 0) path = pathFinder.RandomPath(currentTile, 20);
 
                 if (path.Count > 0)

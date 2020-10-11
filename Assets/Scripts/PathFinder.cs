@@ -24,10 +24,11 @@ public class PathFinder
 {
     List<Node> TODOList = new List<Node>();
     List<Node> DoneList = new List<Node>();
-    Tile goalTile = null;
+    Tile goalTile;
 
     public PathFinder()
     {
+        goalTile = null;
     }
 
     // TODO: Find the path based on A-Star Algorithm
@@ -38,6 +39,7 @@ public class PathFinder
 
     // TODO: Find the path based on A-Star Algorithm
     // In this case avoid a path passing near an enemy tile
+    // BONUS TASK (Required for Honors Contract Students)
     public Queue<Tile> FindPathAStarEvadeEnemy(Tile start, Tile goal)
     {
        return new Queue<Tile>(); // Returns an empty Path
