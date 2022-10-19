@@ -16,9 +16,9 @@ public class Player : MonoBehaviour
     Vector3 velocity;
 
     //properties
-    public float slowSpeed = 0.004f;
-    public float fastSpeed = 0.008f;
-    float speed = 0.04f;
+    public float slowSpeed = 1.0f;
+    public float fastSpeed = 2.0f;
+    float speed = 1.0f;
     int enemyCloseCounter = 0;
     public int maxCounter = 5;
     public float visionDistance = 4;
@@ -100,7 +100,7 @@ public class Player : MonoBehaviour
             case PlayerState.MOVING: //move to next target
                 //move
                 velocity = targetTile.transform.position - transform.position;
-                transform.position = transform.position + (velocity.normalized * speed);
+                transform.position = transform.position + (velocity.normalized * speed)*Time.deltaTime;
                 
                 // Check if player  is dead
                 foreach (Enemy enemy in enemyList)
@@ -112,7 +112,7 @@ public class Player : MonoBehaviour
                 }
 
                 //if target tile is reached
-                if (Vector3.Distance(transform.position, targetTile.transform.position) <= speed)
+                if (Vector3.Distance(transform.position, targetTile.transform.position) <= 0.05f)
                 {
                     //update current tile
                     currentTile = targetTile;

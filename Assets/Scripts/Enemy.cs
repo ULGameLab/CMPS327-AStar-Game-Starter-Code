@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
     public Vector3 velocity;
 
     //properties
-    public float speed = 0.005f;
+    public float speed = 1.0f;
     public float visionDistance = 5;
     public int maxCounter = 5;
     protected int playerCloseCounter;
@@ -112,10 +112,10 @@ public class Enemy : MonoBehaviour
             case EnemyState.MOVING:
                 //move
                 velocity = targetTile.gameObject.transform.position - transform.position;
-                transform.position = transform.position + (velocity.normalized * speed);
+                transform.position = transform.position + (velocity.normalized * speed) * Time.deltaTime;
                 
                 //if target reached
-                if (Vector3.Distance(transform.position, targetTile.gameObject.transform.position) <= speed)
+                if (Vector3.Distance(transform.position, targetTile.gameObject.transform.position) <= 0.05f)
                 {
                     currentTile = targetTile;
                     state = EnemyState.DEFAULT;

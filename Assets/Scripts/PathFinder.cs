@@ -40,7 +40,7 @@ public class PathFinder
 
     // TODO: Find the path based on A-Star Algorithm
     // In this case avoid a path passing near an enemy tile
-    // BONUS TASK (Required for Honors Contract Students)
+    // BONUS TASK (Required the for Honors Contract Students)
     public Queue<Tile> FindPathAStarEvadeEnemy(Tile start, Tile goal)
     {
        return new Queue<Tile>(); // Returns an empty Path
