@@ -94,7 +94,7 @@ public class Player : MonoBehaviour
                 }
 
                 if (path.Count > 0) targetTile = path.Dequeue();
-                targetTile = FindEvadeTile(closestEnemy.gameObject);
+                else targetTile = FindEvadeTile(closestEnemy.gameObject);
                 state = PlayerState.MOVING;
                 break;
             case PlayerState.MOVING: //move to next target
@@ -126,7 +126,7 @@ public class Player : MonoBehaviour
                         break;
                     }
 
-                    //if counter over check for close enemies
+                    //if counter is less than zero, check for close enemies
                     if (enemyCloseCounter <= 0)
                     {
                         foreach (Enemy enemy in enemyList)
@@ -142,7 +142,7 @@ public class Player : MonoBehaviour
                             }
                         }
                     }
-                    //if counter is over 0 got to evade
+                    //if counter is over 0, got to evade
                     if (enemyCloseCounter > 0) state = PlayerState.EVADE;
                     else state = PlayerState.DEFAULT;
                 }

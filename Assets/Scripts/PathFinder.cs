@@ -25,7 +25,8 @@ public class PathFinder
     List<Node> TODOList = new List<Node>();
     List<Node> DoneList = new List<Node>();
     Tile goalTile;
-
+	
+	// This is the constructor
     public PathFinder()
     {
         goalTile = null;
