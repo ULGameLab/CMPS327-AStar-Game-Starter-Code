@@ -24,9 +24,10 @@ public class PathFinder
 {
     List<Node> TODOList = new List<Node>();
     List<Node> DoneList = new List<Node>();
-    Tile goalTile;
-	
-	// This is the constructor
+    Tile goalTile; 
+
+
+    // This is the constructor
     public PathFinder()
     {
         goalTile = null;
@@ -35,7 +36,32 @@ public class PathFinder
     // TODO: Find the path based on A-Star Algorithm
     public Queue<Tile> FindPathAStar(Tile start, Tile goal)
     {
-        return new Queue<Tile>(); // Returns an empty Path
+        TODOList = new List<Node>();
+        DoneList = new List<Node>();
+
+        TODOList.Add(new Node(start, 0, null, 0));
+        goalTile = goal;
+
+        while (TODOList.Count > 0)
+        {
+            TODOList.Sort((x, y) => (x.priority.CompareTo(y.priority))); // This will keep the TODO List sorted based on the F cost
+            Node current = TODOList[0];
+            DoneList.Add(current);
+            TODOList.RemoveAt(0);
+
+            if (current.tile == goal)
+            {
+                return RetracePath(current);  // Returns the Path if goal is reached
+            }
+
+            // for each neighboring tile calculate the costs
+            // You just need to fill code inside this foreach only
+            foreach (Tile nextTile in current.tile.Adjacents)
+            {
+                
+            }
+        }
+        return new Queue<Tile>(); // Returns an empty Path if no path is found
     }
 
     // TODO: Find the path based on A-Star Algorithm
@@ -43,7 +69,33 @@ public class PathFinder
     // BONUS TASK (Required the for Honors Contract Students)
     public Queue<Tile> FindPathAStarEvadeEnemy(Tile start, Tile goal)
     {
-       return new Queue<Tile>(); // Returns an empty Path
+        TODOList = new List<Node>();
+        DoneList = new List<Node>();
+
+        TODOList.Add(new Node(start, 0, null, 0));
+        goalTile = goal;
+
+        while (TODOList.Count > 0)
+        {
+            TODOList.Sort((x, y) => (x.priority.CompareTo(y.priority))); // This will keep the TODO List sorted
+            Node current = TODOList[0];
+            DoneList.Add(current);
+            TODOList.RemoveAt(0);
+
+            if (current.tile == goal)
+            {
+                return RetracePath(current);  // Returns the Path if goal is reached
+            }
+
+            // for each neighboring tile calculate the costs
+            // You just need to fill code inside this foreach only
+            // Just increase the F cost of the enemy tile and the tiles around it by a certain ammount (say 30)
+            foreach (Tile nextTile in current.tile.Adjacents)
+            {
+
+            }
+        }
+        return new Queue<Tile>(); // Returns an empty Path
     }
 
     // Manhattan Distance with horizontal/vertical cost of 10

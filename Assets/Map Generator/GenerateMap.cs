@@ -197,7 +197,7 @@ public class GenerateMap : MonoBehaviour
 
     private void ResetEnemies()
     {
-        Enemy[] enemyList = GameObject.FindObjectsOfType<Enemy>();
+        Enemy[] enemyList = (Enemy[]) GameObject.FindObjectsByType(typeof(Enemy), FindObjectsSortMode.None);
         foreach (Enemy enemy in enemyList)
         {
             enemy.Reset();

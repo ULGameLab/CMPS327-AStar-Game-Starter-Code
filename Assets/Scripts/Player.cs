@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
     {
         path = new Queue<Tile>();
         pathFinder = new PathFinder();
-        enemyList = new List<Enemy>(GameObject.FindObjectsOfType<Enemy>());
+        enemyList = new List<Enemy>((Enemy[]) GameObject.FindObjectsByType(typeof(Enemy), FindObjectsSortMode.None));
         material = GetComponent<MeshRenderer>().material;
         playerColor = material.color;
         currentTile = mapGenerator.start;
