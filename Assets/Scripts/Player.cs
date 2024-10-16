@@ -53,6 +53,16 @@ public class Player : MonoBehaviour
         if (mapGenerator.state == MapState.DESTROYED) return;
 
         HandlePlayerFSMStates();
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            #if UNITY_STANDALONE
+                        Application.Quit();
+            #endif
+            #if UNITY_EDITOR
+                        UnityEditor.EditorApplication.isPlaying = false;
+            #endif
+        }
     }
 
     public bool IsGoalReached()
